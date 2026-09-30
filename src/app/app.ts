@@ -4,6 +4,7 @@ import { User } from './components/user/user';
 import { DUMMY_USERS } from './constants/dummy-users';
 import { Tasks } from './components/tasks/tasks';
 import { NgFor, NgIf } from '@angular/common';
+import { IUser } from './components/user/user.model';
 
 @Component({
   imports: [Header, User, Tasks, NgFor, NgIf],
