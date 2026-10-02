@@ -1,29 +1,28 @@
-div {
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
 button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 0.5rem;
-  background-color: #433352;
-  color: #c3b3d1;
+  background-color: var(--quintenary-color);
+  color: #FFFFFF;
   border: none;
   font: inherit;
   cursor: pointer;
   width: 100%;
   min-width: 10rem;
   text-align: left;
+  transition: all 150ms ease-in-out;
+  border-radius: 8px;
 }
 
 button:hover,
 button:active,
 .active {
-  background-color: #9965dd;
-  color: #150722;
+  background-color: var(--quaternary-color);
+}
+
+button:active {
+  transform: scale(0.9);
 }
 
 img {

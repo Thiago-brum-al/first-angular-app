@@ -1,15 +1,17 @@
 import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { IUser } from './user.model';
+import { Card } from '../shared/card/card';
 
 
 @Component({
-  imports: [],
+  imports: [Card],
   selector: 'app-user',
   styleUrl: './user.css',
   templateUrl: './user.html',
 })
 export class User {
   @Input({ required: true }) user!: IUser;
+  @Input({ required: true }) selected!: boolean;
   @Output() select = new EventEmitter<string>();
   // select = output<string>();
   // user = input.required<UserProps>(); Other approach

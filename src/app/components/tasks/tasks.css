@@ -3,7 +3,8 @@
   border-radius: 8px;
   max-height: 60vh;
   overflow: auto;
-  background-color: #3a2c54;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--tertiary-color);
 }
 
 header {
@@ -29,16 +30,22 @@ menu {
 menu button {
   font: inherit;
   cursor: pointer;
-  background-color: #9965dd;
+  background-color: var(--quintenary-color);
+  color: #FFFFFF;
   border-radius: 4px;
   border: none;
   padding: 0.35rem 0.8rem;
   font-size: 0.9rem;
+  transition: all 200ms ease;
 }
 
 menu button:hover,
 menu button:active {
-  background-color: #a565dd
+  background-color: var(--quaternary-color);
+}
+
+menu button:active {
+  transform: scale(0.9);
 }
 
 ul {

@@ -1,46 +1,39 @@
 import { Component, Input } from '@angular/core';
 import { Task } from './task/task';
 import { IUser } from '../user/user.model';
-import { ITask } from './task/task.model';
+import type { INewTaskData, ITask } from './task/task.model';
+import { AddTask } from './add-task/add-task';
+import { TasksService } from './tasks.service';
 
 @Component({
-  imports: [Task],
+  imports: [Task, AddTask],
   selector: 'app-tasks',
   styleUrl: './tasks.css',
   templateUrl: './tasks.html',
 })
 export class Tasks {
   @Input({ required: true }) user!: IUser;
-  tasks: any[] = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary:
-        'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    },
-  ];
+
+  showAddTask: boolean = false;
+
+  constructor(
+    private tasksService: TasksService
+  ){}
+
   get displayName(): string {
     const value = this.user.name || "Default value";
     return value;
   };
+
   get selectedUserTask(): ITask[] {
-    return this.tasks.filter((t) => t.userId === this.user.id);
+    return this.tasksService.getTasks(this.user.id);
+  };
+
+  addTask(){
+    this.showAddTask = true;
+  }
+
+  closeModal(){
+    this.showAddTask = false;
   };
 }
